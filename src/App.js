@@ -1,11 +1,14 @@
+import React, { Suspense } from 'react'
 import './App.css';
-import ListOfNotes from './components/ListOfNotes';
+
+const Header = React.lazy(() => import('./components/Header'))
 
 function App() {
   return (
     <div className="App">
-      <h1>Lista de todas las Notas</h1>
-      <ListOfNotes />
+      <Suspense fallback={null}>
+        <Header />
+      </Suspense>
     </div>
   );
 }

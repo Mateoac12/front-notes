@@ -1,1 +1,1 @@
-export const PATH = 'https://mysterious-sierra-98596.herokuapp.com'
+export const API_URI = 'http://localhost:3003'
