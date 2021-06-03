@@ -2,11 +2,13 @@ import Login from 'components/Login'
 import Logo from 'components/Logo'
 import React from 'react'
 
+import { HeaderStyle } from './styles'
+
 const Header = () => {
-  return <header>
+  return <HeaderStyle>
     <Logo />
     <Login />
-  </header>
+  </HeaderStyle>
 }
 
 export default Header

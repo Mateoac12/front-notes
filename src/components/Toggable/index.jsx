@@ -1,4 +1,5 @@
 import React, { forwardRef, useImperativeHandle, useState } from 'react'
+import { PrincipalButton, Modal } from './styles'
 
 const Toggable = forwardRef(({ children, buttonLabel }, ref) => {
   const [showModal, setShowModal] = useState(false)
@@ -11,16 +12,18 @@ const Toggable = forwardRef(({ children, buttonLabel }, ref) => {
     }
   })
 
-  return <section>
-    <button onClick={handleShowModal}>{buttonLabel}</button>
+  return <>
+    <PrincipalButton onClick={handleShowModal}>{buttonLabel}</PrincipalButton>
     {
       showModal &&
-      <article>
-        <button onClick={handleShowModal}>❌</button>
-        {children}
-      </article>
+      <Modal>
+        <article>
+          <button onClick={handleShowModal}>❌</button>
+          {children}
+        </article>
+      </Modal>
     }
-  </section>
+  </>
 })
 
 export default Toggable

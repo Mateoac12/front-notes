@@ -1,9 +1,10 @@
 import React from 'react'
+import { Title } from './styles'
 
 const Logo = () => {
-  return <h1>
+  return <Title>
     Notefy
-  </h1>
+  </Title>
 }
 
 export default Logo
