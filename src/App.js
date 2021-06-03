@@ -1,3 +1,4 @@
+import Home from 'pages/Home';
 import React, { Suspense } from 'react'
 import './App.css';
 
@@ -9,6 +10,7 @@ function App() {
       <Suspense fallback={null}>
         <Header />
       </Suspense>
+      <Home />
     </div>
   );
 }
