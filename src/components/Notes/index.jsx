@@ -24,14 +24,19 @@ const Notes = () => {
   }
 
   return <ListOfNotes>
-    <form onSubmit={handleCreateNote}>
-      <input type="text" placeholder='Titulo...' value={title} onChange={handleChangeTitle} />
-      <textarea cols="30" rows="10" placeholder="Patatas con chocolate..." value={content} onChange={handleChangeContent} />
-      <button>Crear nota</button>
-    </form>
     {
-      notes.map(note => <Note note={note} key={note.id} />)
+      window.localStorage.getItem('token') === null
+        ? <h1>No hay notas</h1>
+        : <div>
+          <form onSubmit={handleCreateNote}>
+            <input type="text" placeholder='Titulo...' value={title} onChange={handleChangeTitle} />
+            <textarea cols="30" rows="10" placeholder="Patatas con chocolate..." value={content} onChange={handleChangeContent} />
+            <button>Crear nota</button>
+          </form>
+          {notes.map(note => <Note note={note} key={note.id} />)}
+        </div>
     }
+    
   </ListOfNotes>
 }
 

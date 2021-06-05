@@ -1,5 +1,5 @@
 import React, { forwardRef, useImperativeHandle, useState } from 'react'
-import { PrincipalButton, Modal } from './styles'
+import { Button , Modal, ToggableContainer, CancelButton } from './styles'
 
 const Toggable = forwardRef(({ children, buttonLabel }, ref) => {
   const [showModal, setShowModal] = useState(false)
@@ -12,18 +12,18 @@ const Toggable = forwardRef(({ children, buttonLabel }, ref) => {
     }
   })
 
-  return <>
-    <PrincipalButton onClick={handleShowModal}>{buttonLabel}</PrincipalButton>
+  return <ToggableContainer>
+    <Button onClick={handleShowModal}>{buttonLabel}</Button>
     {
       showModal &&
       <Modal>
         <article>
-          <button onClick={handleShowModal}>❌</button>
+          <CancelButton onClick={handleShowModal}>✖</CancelButton>
           {children}
         </article>
       </Modal>
     }
-  </>
+  </ToggableContainer>
 })
 
 export default Toggable

@@ -1,9 +1,9 @@
 import React from 'react'
-import { Title } from './styles'
+import { Title, LastWords } from './styles'
 
 const Logo = () => {
   return <Title>
-    Notefy
+    Note<LastWords>fy</LastWords>
   </Title>
 }
 
