@@ -6,5 +6,5 @@ export const HeaderStyle = styled.header`
   justify-content: space-around;
   align-items: center;
   padding: .5rem 0;
-  background-color: ${GlobalStyles.primary};
+  background-color: ${GlobalStyles.header};
 `

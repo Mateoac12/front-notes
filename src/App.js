@@ -1,3 +1,4 @@
+import Footer from 'components/Footer';
 import Home from 'pages/Home';
 import React, { Suspense } from 'react'
 import './App.css';
@@ -11,6 +12,7 @@ function App() {
         <Header />
       </Suspense>
       <Home />
+      <Footer />
     </div>
   );
 }

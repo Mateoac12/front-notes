@@ -1,6 +1,6 @@
 import { LoginService } from 'services/login'
 
-const handleConnectServer = ({ username, password, forwardRef, setIsLogged, setLoginError }) => {
+const handleConnectServer = ({ username, password, forwardRef, setLoggedNickname, setLoginError }) => {
   const credentials = {
     username,
     password
@@ -12,7 +12,7 @@ const handleConnectServer = ({ username, password, forwardRef, setIsLogged, setL
       window.localStorage.setItem('name', JSON.stringify(data.name))
       window.localStorage.setItem('username', JSON.stringify(data.username))
       forwardRef.current.handleShowModal()
-      setIsLogged(data.username)
+      setLoggedNickname(data.username)
     })
     .catch(() => {
       setLoginError('Usuario o contrasena incorrecta!')

@@ -10,7 +10,7 @@ import {
 } from './styles'
 
 
-const LoginForm = ({ forwardRef, setIsLogged }) => {
+const LoginForm = ({ forwardRef, setLoggedNickname }) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [loginError, setLoginError] = useState(null)
@@ -20,7 +20,7 @@ const LoginForm = ({ forwardRef, setIsLogged }) => {
 
   const handleLogin = e => {
     e.preventDefault()
-    handleConnectService({ username, password, forwardRef, setIsLogged, setLoginError })
+    handleConnectService({ username, password, forwardRef, setLoggedNickname, setLoginError })
     handleResetInputs()
   }
 

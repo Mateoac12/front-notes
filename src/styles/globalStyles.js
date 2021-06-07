@@ -4,5 +4,6 @@ export const GlobalStyles = {
   white: 'var(--white)',
   whiteTransparent: 'var(--white-transparent)',
   lightGray: 'var(--light-gray-20)',
-  black: 'var(--black)'
+  black: 'var(--black)',
+  header: 'var(--header)'
 }

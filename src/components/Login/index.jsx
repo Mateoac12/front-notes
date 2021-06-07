@@ -6,20 +6,20 @@ import UserInformation from 'components/UserInformation'
 export const Login = () => {
   const initialUsername = JSON.parse(window.localStorage.getItem('username'))
 
-  const [isLogged, setIsLogged] = useState(initialUsername)
+  const [loggedNickname, setLoggedNickname] = useState(initialUsername)
   const forwardRef = useRef()
 
   return <>
     {
-      !isLogged
+      !loggedNickname
         ? <LoginForm
           forwardRef={forwardRef}
-          setIsLogged={setIsLogged}
+          setLoggedNickname={setLoggedNickname}
         />
         : <UserInformation
           forwardRef={forwardRef}
-          setIsLogged={setIsLogged}
-          isLogged={isLogged}
+          setLoggedNickname={setLoggedNickname}
+          loggedNickname={loggedNickname}
         />
     }
   </>

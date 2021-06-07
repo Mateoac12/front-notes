@@ -25,3 +25,10 @@ export const LoginButton = styled.button`
 export const FormLogin = styled.form`
   margin: 1rem 0;
 `
+
+export const Title = styled.h2`
+  font-size: 18px;
+  min-width: 200px;
+  text-align: right;
+  margin: 2rem 0;
+`
