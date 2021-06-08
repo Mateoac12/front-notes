@@ -1,44 +1,29 @@
-import React, { useState } from 'react'
-import { create } from 'services/notes'
+import { useState } from "react"
+import { create } from "services/notes"
+import Modal from 'components/Modal'
 
-const CreateNote = ({ onCreate }) => {
-  const [title, setTitle] = useState("")
-  const [content, setContent] = useState("")
+const CreateNote = () => {
+  const [title, setTitle] = useState('')
+  const [content, setContent] = useState('')
 
-  const handleSetTitle = e => setTitle(e.target.value)
-  const handleSetContent = e => setContent(e.target.value)
+  const handleChangeTitle = e => setTitle(e.target.value)
+  const handleChangeContent = e => setContent(e.target.value)
 
-  const handleSubmit = e => {
+  const handleCreateNote = e => {
     e.preventDefault()
-    create({
-      name: "Madeval",
-      title: title,
-      content: content,
-      important: false
-    }).then(onCreate)
+    create({ title, content })
+      .then(res => console.log(res))
   }
-
-  return <>
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="title"></label>
-      <input
-        id="title"
-        onChange={handleSetTitle}
-        placeholder="Titulo..."
-        type="text"
-        value={title}
-      />
-      <label htmlFor="content"></label>
-      <input
-        id="content"
-        onChange={handleSetContent}
-        placeholder="Comprar patatas..."
-        type="text"
-        value={content}
-      />
-      <button>Crear</button>
-    </form>
-  </>
+  
+  return <div>
+    <Modal>
+      <form onSubmit={handleCreateNote}>
+        <input type="text" placeholder='Titulo...' value={title} onChange={handleChangeTitle} />
+        <textarea cols="30" rows="10" placeholder="Patatas con chocolate..." value={content} onChange={handleChangeContent} />
+        <button>Crear nota</button>
+      </form>
+    </Modal>
+  </div>
 }
 
 export default CreateNote

@@ -8,6 +8,7 @@ const Footer = () => {
   return <FooterContainer>
     {
       SocialLinks.map(({ imgURL, link, name }) => <ListOfLinks
+        key={name}
         img={imgURL}
         link={link}
         name={name}

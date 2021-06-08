@@ -3,7 +3,6 @@ import { Button , Modal, ToggableContainer, CancelButton } from './styles'
 
 const Toggable = forwardRef(({ children, buttonLabel }, ref) => {
   const [showModal, setShowModal] = useState(false)
-  console.log({buttonLabel})
   const handleShowModal = () => setShowModal(!showModal)
 
   useImperativeHandle(ref, () => {

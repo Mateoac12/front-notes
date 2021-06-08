@@ -5,7 +5,7 @@ const useLogin = ({ username, password }) => {
     username,
     password
   }
-  console.log({ credentials })
+  
   return LoginService({ credentials })
     .then(({ data }) => data)
 }

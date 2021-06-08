@@ -7,7 +7,7 @@ const Note = ({ note }) => {
     deleteNote(note.id)
       .then(res => console.log(res))
   }
-
+  console.log({note})
   return <SingleNote>
     <button onClick={handleRemoveNote}>Eliminar</button>
     <h2>{note.title}</h2>
