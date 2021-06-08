@@ -1,10 +1,9 @@
 import * as React from "react"
+import { Banner } from './styles'
 
 function BannerImage(props) {
   return (
-    <svg
-      width={717}
-      height={438}
+    <Banner
       viewBox="0 0 717 438"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -126,7 +125,7 @@ function BannerImage(props) {
           <path fill="#fff" d="M0 0h717v438H0z" />
         </clipPath>
       </defs>
-    </svg>
+    </Banner>
   )
 }
 

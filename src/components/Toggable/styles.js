@@ -24,6 +24,7 @@ export const Button = styled.button`
 
 export const ToggableContainer = styled.div`
   position: relative;
+  z-index: 10;
 `
 
 export const Modal = styled.section`

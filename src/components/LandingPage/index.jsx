@@ -10,13 +10,14 @@ import {
   ImageContainer,
   ImportantWord,
   PrincipalTitle,
-  Title
+  Title,
+  ImportantColor
 } from './styles'
 
 export const LandingPage = () => {
   return <Container>
     <PrincipalTitle>
-      Con Notefy
+      Con <ImportantColor>Notefy</ImportantColor>
       <Typist
         sentences={[' Escribi!', ' Recorda!', ' Organiza!']}
         deletingSpeed={100}
