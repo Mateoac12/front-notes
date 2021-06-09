@@ -15,6 +15,7 @@ export const ModalButton = styled.button`
   font-size: 16px;
   border-radius: 50px 10px 10px 50px;
   cursor: pointer;
+  z-index: 150;
   ${popupScale}
 
   &:hover {
@@ -26,9 +27,15 @@ export const ModalButton = styled.button`
 `
 
 export const ModalBackground = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   width: 100vw;
   height: 100vh;
+  top: 0;
+  left: 0;
   background-color: ${GlobalStyles.whiteTransparent};
   backdrop-filter: blur(4px);
+  z-index: 100;
 `

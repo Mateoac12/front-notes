@@ -5,5 +5,7 @@ export const GlobalStyles = {
   whiteTransparent: 'var(--white-transparent)',
   lightGray: 'var(--light-gray-20)',
   black: 'var(--black)',
-  header: 'var(--header)'
+  header: 'var(--header)',
+  red: 'var(--red)',
+  green: 'var(--green)'
 }

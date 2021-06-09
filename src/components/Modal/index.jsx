@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { forwardRef, useImperativeHandle, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { ModalButton, ModalBackground } from './styles'
 
-const Modal = ({ children }) => {
+const Modal = forwardRef(({ children }, ref) => {
   const [openModal, setOpenModal] = useState(false)
 
   const handleOpenModal = () => setOpenModal(!openModal)
@@ -12,7 +13,13 @@ const Modal = ({ children }) => {
       : 'Nueva Nota ➕'
   }
 
-  return <div>
+  useImperativeHandle(ref, () => {
+    return {
+      handleOpenModal
+    }
+  })
+
+  return <>
     <ModalButton onClick={handleOpenModal}>{handleChangeLabelOfButton()}</ModalButton>
       {
         openModal &&
@@ -20,7 +27,16 @@ const Modal = ({ children }) => {
             {children}
           </ModalBackground>
       }
-  </div>
-}
+  </>
+})
 
-export default Modal
+const CreateModal = forwardRef(({ children }, ref) => {
+  return createPortal(
+    <Modal ref={ref}>
+      {children}
+    </Modal>,
+    document.getElementById('modal')
+  )
+})
+
+export default CreateModal
