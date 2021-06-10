@@ -10,7 +10,6 @@ export const SingleNote = styled.article`
   border-radius: 25px;
   margin: .5rem;
   min-width: 200px;
-  max-width: 300px;
   box-shadow: 0 0 0 ${GlobalStyles.lightGray};
   transition: box-shadow, border .3s linear;
   cursor: pointer;
@@ -19,6 +18,11 @@ export const SingleNote = styled.article`
     box-shadow: 1px -1px 5px ${GlobalStyles.lightGray};
     border: 1px solid ${GlobalStyles.primary};
   }
+`
+
+export const ContainerButton = styled.div`
+  display: flex;
+  justify-content: space-between;
 `
 
 export const ButtonDelete = styled.button`
@@ -32,7 +36,26 @@ export const ButtonDelete = styled.button`
     background-color: ${GlobalStyles.red};
     animation: popupScale .3s ease-in-out;
   }
+`
 
-  &:active {
-  } 
+export const ButtonImportantNote = styled.button`
+  width: 25px;
+  height: 25px;
+  border: none;
+  outline: none;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  cursor: pointer;
+  ${popupScale};
+  ${props => {
+    if (props.isImportant) return `background-color: ${GlobalStyles.primary};`
+    return `background-color: ${GlobalStyles.lightGray};`
+  }}
+
+  &:hover {
+    ${props => {
+      if (props.isImportant) return `background-color: ${GlobalStyles.lightGray};`
+      return `background-color: ${GlobalStyles.primary};`
+    }}
+    animation: popupScale .3s ease-in-out;
+  }
 `

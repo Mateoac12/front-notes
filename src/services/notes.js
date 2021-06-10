@@ -31,4 +31,10 @@ const deleteNote = async (id) => {
     .catch(err => console.error(err))
 }
 
-export { getAll, getSingle, create, deleteNote }
+const editNote = async (id, note) => {
+  return await axios.put(`${API_URI}/api/notes/${id}`, note, config)
+    .then(res => res)
+    .catch(err => console.error(err))
+}
+
+export { getAll, getSingle, create, deleteNote, editNote }

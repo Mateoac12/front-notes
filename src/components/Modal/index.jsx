@@ -19,24 +19,18 @@ const Modal = forwardRef(({ children }, ref) => {
     }
   })
 
-  return <>
-    <ModalButton onClick={handleOpenModal}>{handleChangeLabelOfButton()}</ModalButton>
-      {
-        openModal &&
-          <ModalBackground>
-            {children}
-          </ModalBackground>
-      }
-  </>
-})
-
-const CreateModal = forwardRef(({ children }, ref) => {
   return createPortal(
-    <Modal ref={ref}>
-      {children}
-    </Modal>,
+    <>
+      <ModalButton onClick={handleOpenModal}>{handleChangeLabelOfButton()}</ModalButton>
+        {
+          openModal &&
+            <ModalBackground>
+              {children}
+            </ModalBackground>
+        }
+    </>,
     document.getElementById('modal')
   )
 })
 
-export default CreateModal
+export default Modal
