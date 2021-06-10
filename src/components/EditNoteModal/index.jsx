@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { editNote } from 'services/notes'
 import { ModalContainer, FormContainer, TitleInput, ContentInput, ButtonInput, BackButton } from './styles'
 
 const EditNoteModal = ({ changeModalState, note }) => {
@@ -8,11 +9,25 @@ const EditNoteModal = ({ changeModalState, note }) => {
   const handleChangeTitle = e => setTitle(e.target.value)
   const handleChangeContent = e => setContent(e.target.value)
 
+  const handleUpdateNote = () => {
+    const updatedNote = {
+      title,
+      content,
+      important: note.important
+    }
+
+    editNote(note.id, updatedNote)
+      .then(res => {
+        console.log(res)
+      })
+      .carch(err => console.error(err))
+  }
+
   return <ModalContainer>
     <BackButton onClick={changeModalState}>
       <img src='https://icongr.am/entypo/chevron-small-left.svg?size=20&color=ffffff' alt="Back" />
     </BackButton>
-    <FormContainer >
+    <FormContainer onSubmit={handleUpdateNote}>
       <TitleInput type="text" placeholder='Titulo...' value={title} onChange={handleChangeTitle} />
       <ContentInput cols="30" rows="10" placeholder="Patatas con chocolate..." value={content} onChange={handleChangeContent} />
       <ButtonInput>Actualizar nota</ButtonInput>

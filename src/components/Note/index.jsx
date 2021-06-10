@@ -15,7 +15,8 @@ const Note = ({ note }) => {
     setIsDelete(!isDelete)
   }
 
-  const handleChangeImportant = () => {
+  const handleChangeImportant = (e) => {
+    e.stopPropagation()
     const { id, title, content, important } = note
     const newNote = {
       title,

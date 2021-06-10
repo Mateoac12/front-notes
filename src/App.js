@@ -1,3 +1,4 @@
+import BannerWave from 'components/BannerWave';
 import Footer from 'components/Footer';
 import Home from 'pages/Home';
 import React, { Suspense } from 'react'
@@ -13,6 +14,7 @@ function App() {
       </Suspense>
       <Home />
       <Footer />
+      <BannerWave />
     </div>
   );
 }

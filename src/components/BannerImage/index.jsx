@@ -6,7 +6,6 @@ function BannerImage(props) {
     <Banner
       viewBox="0 0 717 438"
       fill="none"
-      xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
       <g clipPath="url(#prefix__clip0)">

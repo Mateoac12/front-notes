@@ -1,6 +1,5 @@
 import React from 'react'
 import BannerImage from 'components/BannerImage'
-import BannerWave from 'components/BannerWave'
 import Typist from 'react-text-typist';
 
 import {
@@ -31,7 +30,6 @@ export const LandingPage = () => {
       <Title>Recuerda lo que es importante<br/><ImportantWord>para ti</ImportantWord> y para los <ImportantWord>demas!</ImportantWord></Title>
       <CiteWord>Notefy</CiteWord>
     </HeaderContainer>
-    <BannerWave />
   </Container>
 }
 

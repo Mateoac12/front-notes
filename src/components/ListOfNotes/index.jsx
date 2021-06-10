@@ -3,18 +3,20 @@ import { getAll } from "services/notes"
 import Note from "components/Note"
 
 import { NotesContainer } from './styles'
+import PageNotNotes from 'components/PageNotNotes'
 
 const ListOfNotes = () => {
-  const [notes, setNotes] = useState([])
+  const [notes = [], setNotes] = useState([])
 
   useEffect(() => {
     getAll()
       .then(setNotes)
     }, [])
-
   return <NotesContainer>
     {
-      notes.map(note => <Note note={note} key={note.id} />)
+      notes.length
+        ? notes.map(note => <Note note={note} key={note.id} />)
+        : <PageNotNotes />
     }
   </NotesContainer>
 }
