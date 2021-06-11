@@ -1,8 +1,10 @@
+import useEditNote from 'hooks/useEditNote'
 import React, { useState } from 'react'
-import { editNote } from 'services/notes'
 import { ModalContainer, FormContainer, TitleInput, ContentInput, ButtonInput, BackButton } from './styles'
 
 const EditNoteModal = ({ changeModalState, note }) => {
+  const _useEditNote = useEditNote
+
   const [title, setTitle] = useState(note.title)
   const [content, setContent] = useState(note.content)
 
@@ -10,17 +12,12 @@ const EditNoteModal = ({ changeModalState, note }) => {
   const handleChangeContent = e => setContent(e.target.value)
 
   const handleUpdateNote = () => {
-    const updatedNote = {
+    _useEditNote({
       title,
       content,
-      important: note.important
-    }
-
-    editNote(note.id, updatedNote)
-      .then(res => {
-        console.log(res)
-      })
-      .carch(err => console.error(err))
+      important: note.important,
+      id: note.id
+    })
   }
 
   return <ModalContainer>

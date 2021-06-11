@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react'
-import LoginContextProvider from 'context/LoginContext';
+import LoginContextProvider from 'context/LoginContext'
+import ContextNotesProvider from 'context/contextNotes'
 
 import Home from 'pages/Home';
 
@@ -17,7 +18,9 @@ function App() {
         <Suspense fallback={null}>
           <Header />
         </Suspense>
-        <Home />
+        <ContextNotesProvider fallback={null}>
+          <Home />
+        </ContextNotesProvider>
         <Footer />
         <BannerWave />
         </LoginContextProvider>

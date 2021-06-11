@@ -1,12 +1,14 @@
 import React from 'react'
-import { deleteNote } from 'services/notes'
+import useDeleteNote from 'hooks/useDeleteNote'
 
 import { ContainerMessage, ButtonsContainer, Button, Title } from './styles'
 
 const CancelDeleteMessage = ({ note, hideMessage }) => {
-  const handleRemoveNote = () => {
-    deleteNote(note.id)
-      .then(res => console.log(res))
+  const _useDeleteNote = useDeleteNote
+
+  const handleRemoveNote = (e) => {
+    e.stopPropagation()
+    _useDeleteNote({ id: note.id })
   }
 
   return <ContainerMessage>

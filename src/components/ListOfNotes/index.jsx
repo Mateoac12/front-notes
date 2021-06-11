@@ -1,21 +1,18 @@
-import React, { useEffect, useState } from 'react'
-import { getAll } from "services/notes"
-import Note from "components/Note"
+import React from 'react'
+import useGetAllNotes from 'hooks/useGetAllNotes'
 
-import { NotesContainer } from './styles'
+import Note from "components/Note"
 import PageNotNotes from 'components/PageNotNotes'
 
-const ListOfNotes = () => {
-  const [notes = [], setNotes] = useState([])
+import { NotesContainer } from './styles'
 
-  useEffect(() => {
-    getAll()
-      .then(setNotes)
-    }, [])
+const ListOfNotes = () => {
+  const { allNotes } = useGetAllNotes()
+
   return <NotesContainer>
     {
-      notes.length
-        ? notes.map(note => <Note note={note} key={note.id} />)
+      allNotes.length
+        ? allNotes.map(note => <Note note={note} key={note.id} />)
         : <PageNotNotes />
     }
   </NotesContainer>

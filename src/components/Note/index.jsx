@@ -1,11 +1,15 @@
+import React, { useState } from 'react'
+import useEditNote from 'hooks/useEditNote'
+
 import CancelDeleteMessage from 'components/CancelDeleteMessage'
 import EditNoteModal from 'components/EditNoteModal'
-import React, { useState } from 'react'
-import { editNote } from 'services/notes'
+
 import { GlobalStyles } from 'styles/globalStyles'
 import { SingleNote, ButtonDelete, ButtonImportantNote, ContainerButton } from './styles'
 
 const Note = ({ note }) => {
+  const _useEditNote = useEditNote
+
   const [isDelete, setIsDelete] = useState(false)
   const [isImportant, setIsImportant] = useState(note.important)
   const [openModal, setOpenModal] = useState(false)
@@ -17,17 +21,15 @@ const Note = ({ note }) => {
 
   const handleChangeImportant = (e) => {
     e.stopPropagation()
-    const { id, title, content, important } = note
-    const newNote = {
-      title,
-      content,
-      important: !important
-    }
-
-    editNote(id, note = newNote)
-      .then(({ data }) => {
-        setIsImportant(data.important)
-      })
+    _useEditNote({
+      title: note.title,
+      content: note.content,
+      important: !note.important,
+      id: note.id
+    })
+    .then(({ important }) => 
+      setIsImportant(important)
+    )
   }
 
   const handleOpenEditNote = () => setOpenModal(!openModal)

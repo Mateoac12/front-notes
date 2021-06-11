@@ -1,10 +1,14 @@
-import { useRef, useState } from "react"
-import { create } from "services/notes"
+import { useContext, useRef, useState } from "react"
 import Modal from 'components/Modal'
 
 import { FormContainer, TitleInput, ContentInput, ButtonInput } from './styles'
+import useCreateNote from "hooks/useCreateNote"
+import { ContextNotes } from "context/contextNotes"
 
 const CreateNote = () => {
+  const _useCreateNote = useCreateNote
+  const { setAllNotes } = useContext(ContextNotes)
+
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
   const modalRef = useRef()
@@ -14,10 +18,10 @@ const CreateNote = () => {
 
   const handleCreateNote = e => {
     e.preventDefault()
-    create({ title, content })
-      .then(res => {
-        console.log(res)
-        modalRef.current.handleOpenModal()
+    _useCreateNote({ title, content, modalRef })
+      .then(data => {
+        console.log({ data })
+        setAllNotes(lastnotes => lastnotes.concat(data))
       })
   }
   
