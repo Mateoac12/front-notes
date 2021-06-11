@@ -5,7 +5,6 @@ import { getAll } from "services/notes"
 const useGetAllNotes = () => {
   const {allNotes, setAllNotes} = useContext(ContextNotes)
   console.log({allNotes})
-  
   useEffect(() => {
     getAll()
       .then(setAllNotes)

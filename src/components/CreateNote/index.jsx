@@ -20,7 +20,6 @@ const CreateNote = () => {
     e.preventDefault()
     _useCreateNote({ title, content, modalRef })
       .then(data => {
-        console.log({ data })
         setAllNotes(lastnotes => lastnotes.concat(data))
       })
   }

@@ -1,8 +1,8 @@
 import { deleteNote } from "services/notes"
 
 const useDeleteNote = ({ id }) => {
-  deleteNote(id)
-  .then(console.log)
+  return deleteNote(id)
+  .then(data => data)
   .catch(err => console.error(err))
 }
 

@@ -24,12 +24,11 @@ const Note = ({ note }) => {
     _useEditNote({
       title: note.title,
       content: note.content,
-      important: !note.important,
+      important: !isImportant,
       id: note.id
     })
-    .then(({ important }) => 
-      setIsImportant(important)
-    )
+
+    setIsImportant(!isImportant)
   }
 
   const handleOpenEditNote = () => setOpenModal(!openModal)
