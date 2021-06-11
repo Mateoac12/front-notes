@@ -1,10 +1,15 @@
+import React from "react"
+import { LoginContext } from "context/LoginContext"
+
 import LandingPage from "components/LandingPage"
 import NotePage from "components/NotePage"
 
 const Notes = () => {
+  const { token } = React.useContext(LoginContext)
+
   return <>
     {
-      window.localStorage.getItem('token') === null
+      token === null
         ? <LandingPage />
         : <NotePage />
     }
