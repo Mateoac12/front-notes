@@ -11,6 +11,7 @@ export const LoginButton = styled.button`
   border-radius: 50px 10px 50px 50px;
   cursor: pointer;
   margin-left: auto;
+  border: 1px solid transparent;
   
   &:hover {
     background-color: ${GlobalStyles.white};

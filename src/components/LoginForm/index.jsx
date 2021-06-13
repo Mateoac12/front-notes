@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import handleConnectService from './handleConnectServer'
+
 import Toggable from 'components/Toggable'
+import CreateUser from 'components/CreateUser'
 
 import {
   LoginButton,
@@ -49,6 +51,7 @@ const LoginForm = ({ forwardRef, setLoggedNickname, setToken }) => {
           loginError && <small>{loginError}</small>
         }
         <LoginButton>Login</LoginButton>
+        <CreateUser />
       </FormLogin>
     </Toggable>
   </>

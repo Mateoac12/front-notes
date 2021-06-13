@@ -1,8 +1,10 @@
 import React, { Suspense } from 'react'
+import { Route } from 'wouter'
 import LoginContextProvider from 'context/LoginContext'
 import ContextNotesProvider from 'context/contextNotes'
 
 import Home from 'pages/Home';
+import Register from 'pages/Register';
 
 import BannerWave from 'components/BannerWave';
 import Footer from 'components/Footer';
@@ -19,8 +21,15 @@ function App() {
           <Header />
         </Suspense>
         <ContextNotesProvider fallback={null}>
-          <Home />
+          <Route
+            path='/'
+            component={Home}
+          />
         </ContextNotesProvider>
+        <Route
+          path='/register'
+          component={Register}
+        />
         <Footer />
         <BannerWave />
         </LoginContextProvider>
