@@ -9,6 +9,6 @@ export const register = ({ name, username, password }) => {
   }
 
   return axios.post(`${API_URI}/api/users`, credentials)
-    .then(user => user.data)
-    .catch(err => console.error(err))
+    .then(user => user)
+    .catch(err => err)
 }

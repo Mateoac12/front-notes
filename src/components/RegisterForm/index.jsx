@@ -1,14 +1,13 @@
+import ErrorMessage from 'components/ErrorMessage'
 import useCreateUser from 'hooks/useCreateUser'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useLocation } from 'wouter'
-import { handleCheckForm } from './handleCheckForm'
 import { RegisterContainer, PrincipalTitle, Title, Description, Form, Label, Inputs, ButtonSubmit } from './styles'
 
 export const RegisterForm = () => {
   const [name, setName] = useState('')
   const [username, setUsername] = useState('')
   const [firstPassword, setFirstPassword] = useState('')
-  const [secondPassword, setSecondPassword] = useState('')
   const [hadError, setHadError] = useState(false)
 
   const _useCreateUser = useCreateUser
@@ -17,19 +16,25 @@ export const RegisterForm = () => {
   const handleSetName = e => setName(e.target.value)
   const handleSetUsername = e => setUsername(e.target.value)
   const handleSetFirstPassword = e => setFirstPassword(e.target.value)
-  const handleSetSecondPassword = e => setSecondPassword(e.target.value)
 
   const handleRegister = (e) => {
     e.preventDefault()
-    hadError
-      ? handleCheckForm({ firstPassword, secondPassword, setHadError })
-      : _useCreateUser({ name, username, password: firstPassword })
-        .then(data => {
-          typeof data === 'undefined'
-            ? setHadError(true)
-            : setLocation('/created-user')
-        })
+    _useCreateUser({ name, username, password: firstPassword })
+      .then(data => {
+        typeof data.error !== 'undefined'
+          ? setHadError(true)
+          : setLocation('/created-user')
+      })
+      .catch(err => console.log({ err }))
   }
+
+  useEffect(() => {
+    hadError && (
+      setTimeout(() => {
+        setHadError(!hadError)
+      }, 5000)
+    )
+  }, [hadError])
 
   return (
     <RegisterContainer onSubmit={handleRegister}>
@@ -60,16 +65,8 @@ export const RegisterForm = () => {
           value={firstPassword}
         />
 
-        <Label htmlFor="secondPassword">Repite la Contrasena:</Label>
-        <Inputs
-          type="password"
-          id="secondPassword"
-          onChange={handleSetSecondPassword}
-          value={secondPassword}
-        />
-
         {
-          hadError && <h1>Errores por todos ladoooos</h1>
+          hadError && <ErrorMessage>Mmmm, parece que ese nombre de usuario ya existe 🤔</ErrorMessage>
         }
 
         <ButtonSubmit>Registrarse!</ButtonSubmit>
