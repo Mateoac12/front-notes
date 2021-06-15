@@ -7,6 +7,8 @@ export const Title = styled.h1`
   font-size: 24px;
   color: ${GlobalStyles.secondary};
   cursor: pointer;
+  display: flex;
+  font-weight: 400;
 `
 
 export const LastWords = styled.span`

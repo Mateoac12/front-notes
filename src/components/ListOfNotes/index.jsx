@@ -11,7 +11,7 @@ const ListOfNotes = () => {
   console.log('hola', allNotes)
   return <NotesContainer>
     {
-      allNotes.length
+      allNotes && allNotes.length
         ? allNotes.map(note => <Note note={note} key={note.id} />)
         : <PageNotNotes />
     }

@@ -1,10 +1,12 @@
 import React, { Suspense } from 'react'
 import { Route } from 'wouter'
+
 import LoginContextProvider from 'context/LoginContext'
 import ContextNotesProvider from 'context/contextNotes'
 
 import Home from 'pages/Home';
 import Register from 'pages/Register';
+import CreatedUser from 'pages/CreatedUser';
 
 import BannerWave from 'components/BannerWave';
 import Footer from 'components/Footer';
@@ -29,6 +31,10 @@ function App() {
         <Route
           path='/register'
           component={Register}
+        />
+        <Route
+          path='/created-user'
+          component={CreatedUser}
         />
         <Footer />
         <BannerWave />

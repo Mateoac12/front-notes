@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import handleConnectService from './handleConnectServer'
+import { useLocation } from 'wouter'
 
 import Toggable from 'components/Toggable'
 import CreateUser from 'components/CreateUser'
@@ -17,11 +18,14 @@ const LoginForm = ({ forwardRef, setLoggedNickname, setToken }) => {
   const [password, setPassword] = useState('')
   const [loginError, setLoginError] = useState(null)
 
+  const [, setLocation] = useLocation()
+
   const handleChangeUsername = e => setUsername(e.target.value)
   const handleChangePassword = e => setPassword(e.target.value)
 
   const handleLogin = e => {
     e.preventDefault()
+    setLocation('/')
     handleConnectService({ username, password, forwardRef, setLoggedNickname, setLoginError, setToken })
     handleResetInputs()
   }
