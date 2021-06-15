@@ -8,7 +8,7 @@ import { NotesContainer } from './styles'
 
 const ListOfNotes = () => {
   const { allNotes } = useGetAllNotes()
-  console.log('hola', allNotes)
+  
   return <NotesContainer>
     {
       allNotes && allNotes.length

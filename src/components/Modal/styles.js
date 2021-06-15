@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 import { popupScale } from 'styles/animations'
 import { GlobalStyles } from 'styles/globalStyles'
+import { bigMobile } from 'styles/mixins'
 
 export const ModalButton = styled.button`
   position: fixed;
@@ -23,6 +24,14 @@ export const ModalButton = styled.button`
     background-color: ${GlobalStyles.white};
     border: 1px solid ${GlobalStyles.secondary};
     animation: popupScale .3s ease-in-out;
+  }
+
+  @media (max-width: ${bigMobile}) {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    bottom: 1rem;
+    padding: 0;
   }
 `
 

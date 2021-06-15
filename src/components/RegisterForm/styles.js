@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 import { popupScale } from 'styles/animations'
 import { GlobalStyles } from 'styles/globalStyles'
+import { tablet } from 'styles/mixins'
 
 export const RegisterContainer = styled.article`
   text-align: right;
@@ -11,6 +12,13 @@ export const PrincipalTitle = styled.h1`
   font-size: 42px;
   color: ${GlobalStyles.black};
   margin-bottom: .5rem;
+
+  @media (max-width: ${tablet}) {
+    font-size: 32px;
+    text-align: left;
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
 `
 
 export const Title = styled.span`
@@ -25,6 +33,13 @@ export const Description = styled.blockquote`
   color: ${GlobalStyles.black};
   margin-top: .5rem;
   margin-right: 0;
+
+  @media (max-width: ${tablet}) {
+    font-size: 20px;
+    text-align: left;
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
 `
 
 export const Form = styled.form`

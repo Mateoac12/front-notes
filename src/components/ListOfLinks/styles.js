@@ -16,7 +16,7 @@ export const BlockImage = styled.figure`
   align-items: center;
 `
 export const Title = styled.figcaption`
-  font-size: 20px;
+  font-size: 14px;
   outline: none;
   color: ${GlobalStyles.black};
   margin-left: .5rem;

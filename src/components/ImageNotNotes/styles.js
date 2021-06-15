@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { desktop, tablet } from 'styles/mixins'
+import { bigMobile, desktop, tablet } from 'styles/mixins'
 
 export const Image = styled.svg`
   width: auto;
@@ -13,5 +13,11 @@ export const Image = styled.svg`
   @media (max-width: ${tablet}) {
     width: 100%;
     height: auto;
+  }
+
+  @media (max-width: ${bigMobile}) {
+    width: auto;
+    margin-left: 2rem;
+    margin-right: 2rem;
   }
 `

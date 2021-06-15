@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 import { popupScale } from 'styles/animations'
 import { GlobalStyles } from 'styles/globalStyles'
+import { bigMobile } from 'styles/mixins'
 
 export const FormContainer = styled.form`
   background-color: ${GlobalStyles.white};
@@ -12,6 +13,13 @@ export const FormContainer = styled.form`
   box-shadow: 1px -1px 5px ${GlobalStyles.lightGray};
   display: flex;
   flex-direction: column;
+
+  @media (max-width: ${bigMobile}) {
+    width: 95%;
+    box-shadow: 1px 1px 5px ${GlobalStyles.lightGray};
+    padding-left: 0;
+    padding-right: 0;
+  }
 `
 
 export const TitleInput = styled.input`
@@ -20,6 +28,12 @@ export const TitleInput = styled.input`
   outline: none;
   max-width: 100%;
   margin-bottom: 1rem; 
+
+  @media (max-width: ${bigMobile}) {
+    font-size: 32px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 `
 
 export const ContentInput = styled.textarea`
@@ -32,6 +46,11 @@ export const ContentInput = styled.textarea`
     ${GlobalStyles.white} 28px,
     ${GlobalStyles.white  } 54px
   );
+
+  @media (max-width: ${bigMobile}) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 `
 
 export const ButtonInput = styled.button`
@@ -51,5 +70,12 @@ export const ButtonInput = styled.button`
     background-color: ${GlobalStyles.white};
     border: 1px solid ${GlobalStyles.secondary};
     color: ${GlobalStyles.secondary};
+  }
+
+  @media (max-width: ${bigMobile}) {
+    width: 80%;
+    padding: .5rem 0;
+    margin-left: auto;
+    margin-right: auto;
   }
 `

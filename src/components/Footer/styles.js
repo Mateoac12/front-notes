@@ -1,9 +1,10 @@
 import styled from '@emotion/styled'
+import { GlobalStyles } from 'styles/globalStyles'
 import { tablet } from 'styles/mixins'
 
 export const FooterContainer = styled.footer`
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   position: relative;
   left: 0;
   bottom: 5px;
@@ -11,8 +12,11 @@ export const FooterContainer = styled.footer`
   margin-top: 200px;
 
   @media (max-width: ${tablet}) {
-    flex-wrap: wrap;
-    position: relative;
-    margin-top: 200px;
+    flex-direction: column;
+    align-items: center;
   }
+`
+
+export const Text = styled.p`
+  color: ${GlobalStyles.black};
 `

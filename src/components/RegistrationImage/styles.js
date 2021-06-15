@@ -11,7 +11,6 @@ export const Banner = styled.svg`
   }
 
   @media (max-width: ${tablet}) {
-    width: 100%;
-    height: auto;
+    display: none;
   }
 `

@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import { GlobalStyles } from 'styles/globalStyles'
+import { bigMobile } from 'styles/mixins'
 
 export const Title = styled.h1`
   margin-top: 0;
@@ -13,4 +14,10 @@ export const Title = styled.h1`
 
 export const LastWords = styled.span`
   color: ${GlobalStyles.white};
+`
+
+export const Image = styled.img`
+  @media (max-width: ${bigMobile}) {
+    display: none
+  }
 `

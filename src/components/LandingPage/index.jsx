@@ -12,9 +12,14 @@ import {
   Title,
   ImportantColor
 } from './styles'
+import SEO from 'components/SEO';
 
 export const LandingPage = () => {
   return <Container>
+    <SEO
+      title='Home'
+      description='Crea notas para poder organizarte, recordarlas y manejarte mejor en tu dia a dia'
+    />
     <PrincipalTitle>
       Con <ImportantColor>Notefy</ImportantColor>
       <Typist
