@@ -51,7 +51,7 @@ const LoginForm = ({ forwardRef, setLoggedNickname, setToken }) => {
           loginError && <small>{loginError}</small>
         }
         <LoginButton>Login</LoginButton>
-        <CreateUser />
+        <CreateUser handleCloseModal={forwardRef} />
       </FormLogin>
     </Toggable>
   </>

@@ -2,11 +2,12 @@ import React from 'react'
 import { Button } from './styles'
 import { useLocation } from 'wouter'
 
-export const CreateUser = () => {
+export const CreateUser = ({ handleCloseModal }) => {
   const [, setLocation] = useLocation()
 
   const handleOpenRegisterForm = (e) => {
     e.preventDefault()
+    handleCloseModal.current.handleShowModal()
     setLocation('/register')
   }
 

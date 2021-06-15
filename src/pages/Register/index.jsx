@@ -1,7 +1,17 @@
 import React from 'react'
 
+import RegisterImage from 'components/RegistrationImage'
+import RegisterForm from 'components/RegisterForm'
+
+import { RegisterContainer } from './styles'
+
 const Register = () => {
-  return <h1>Hola</h1>
+  return (
+    <RegisterContainer>
+      <RegisterForm />
+      <RegisterImage />
+    </RegisterContainer>
+  )
 }
 
 export default Register

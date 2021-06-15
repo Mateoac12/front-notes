@@ -13,6 +13,7 @@ export const SingleNote = styled.article`
   box-shadow: 0 0 0 ${GlobalStyles.lightGray};
   transition: box-shadow, border .3s linear;
   cursor: pointer;
+  overflow-wrap: break-word;
 
   &:hover {
     box-shadow: 1px -1px 5px ${GlobalStyles.lightGray};
